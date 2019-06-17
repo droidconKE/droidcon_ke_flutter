@@ -11,21 +11,14 @@ dependencies:
     sdk: flutter
 
   provider: ^3.0.0+1
+  firebase_auth: ^0.11.1+6
+  google_sign_in: ^4.0.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-
-# For information on the generic Dart part of this file, see the
-# following page: https://www.dartlang.org/tools/pub/pubspec
-
-# The following section is specific to Flutter.
 flutter:
-
-  # The following line ensures that the Material Icons font is
-  # included with your application, so that you can use the icons in
-  # the material Icons class.
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
