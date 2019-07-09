@@ -16,9 +16,37 @@ class _WelcomePageState extends State<WelcomePage> {
   Widget build(BuildContext context) {
     FirebaseUser user = Provider.of<FirebaseUser>(context);
     return Scaffold(
-      body: Center(
-        child: (user == null)
-            ? OutlineButton.icon(
+      backgroundColor: Color(0xFFFFD54F),
+      body: Container(
+        padding: EdgeInsets.symmetric(horizontal: 30),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Image.asset(
+              "assets/images/logo-name.png",
+              fit: BoxFit.fitWidth,
+            ),
+            Text("First Sub-Saharan Android Focused Developer conference", textAlign: TextAlign.center, style: Theme.of(context).textTheme.title,),
+            Divider(
+              height: 100,
+              color: Colors.grey,
+            ),
+            Row(
+              children: <Widget>[
+                Icon(Icons.calendar_today),
+                Expanded(
+                  child: Text("August 8th - 9th 2019", textAlign: TextAlign.center, style: Theme.of(context).textTheme.title,),
+                ),
+              ],
+            ),
+            SizedBox(height: 50,),
+            Text("iHub Nairobi", textAlign: TextAlign.center, style: Theme.of(context).textTheme.title,),
+            Divider(
+              height: 100,
+              color: Colors.grey,
+            ),
+            if (user == null)
+              FlatButton(
                 onPressed: () async {
                   final GoogleSignInAccount googleUser =
                       await _googleSignIn.signIn();
@@ -34,9 +62,22 @@ class _WelcomePageState extends State<WelcomePage> {
                   final FirebaseUser user =
                       await _auth.signInWithCredential(credential);
                 },
-                icon: Icon(Icons.face),
-                label: Text("SignIn with Google"))
-            : Column(
+                color: Colors.white,
+                child: Row(
+                  children: <Widget>[
+                    Image.asset(
+                        "assets/images/google-signin.png", height: 15,),
+                    Expanded(
+                      child: Text(
+                        "Sign In",
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            if (user != null)
+              Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Text(user.displayName),
@@ -48,6 +89,10 @@ class _WelcomePageState extends State<WelcomePage> {
                   ),
                 ],
               ),
+            SizedBox(height: 50,),
+            Text("\u00a9 2019 droidconKE", textAlign: TextAlign.center, style: Theme.of(context).textTheme.title,),
+          ],
+        ),
       ),
     );
   }

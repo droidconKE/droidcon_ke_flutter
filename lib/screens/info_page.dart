@@ -15,7 +15,7 @@ class _InfoPageState extends State<InfoPage> {
   checkBrightness(BuildContext context) {
     setState(() {
       if (appTheme == null) appTheme = Provider.of<AppTheme>(context);
-      _isDark = appTheme.getTheme().brightness == Brightness.dark;
+      _isDark = appTheme.getBrightness() == Brightness.dark;
     });
   }
 
@@ -33,9 +33,9 @@ class _InfoPageState extends State<InfoPage> {
             OutlineButton(
               onPressed: () {
                 if (_isDark)
-                  appTheme.setTheme(ThemeData.light());
+                  appTheme.setBrightness(Brightness.light);
                 else
-                  appTheme.setTheme(ThemeData.dark());
+                  appTheme.setBrightness(Brightness.dark);
                 checkBrightness(context);
               },
               child: Text("${_isDark ? 'Light' : 'Dark'} Theme"),

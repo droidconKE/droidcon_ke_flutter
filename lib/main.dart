@@ -13,7 +13,7 @@ class DroidconKeApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<AppTheme>.value(
-            value: AppTheme(ThemeData.light())),
+            value: AppTheme(Brightness.light)),
         StreamProvider<FirebaseUser>.value(
             value: FirebaseAuth.instance.onAuthStateChanged)
       ],
@@ -25,10 +25,16 @@ class DroidconKeApp extends StatelessWidget {
 class MaterialAppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    FirebaseUser user = Provider.of<FirebaseUser>(context);
+    Brightness brightness = Provider.of<AppTheme>(context).getBrightness();
     return MaterialApp(
       title: "DroidcoKE",
-      theme: Provider.of<AppTheme>(context).getTheme(),
-      home: WelcomePage(),
+      theme: ThemeData(
+        primaryColor: Colors.purple,
+        primaryColorDark: Colors.black,
+        brightness: brightness,
+      ),
+      home: (user == null) ? WelcomePage() : HomePage(),
     );
   }
 }

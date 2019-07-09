@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
 class AppTheme with ChangeNotifier{
-  ThemeData _themeData;
+  Brightness _themeBrightness;
 
-  AppTheme(this._themeData);
+  AppTheme(this._themeBrightness);
 
-  ThemeData getTheme() => _themeData;
+  Brightness getBrightness() => _themeBrightness;
 
-  setTheme(ThemeData themeData){
-    _themeData = themeData;
+  setBrightness(Brightness themeData){
+    _themeBrightness = themeData;
 
     notifyListeners();
   }

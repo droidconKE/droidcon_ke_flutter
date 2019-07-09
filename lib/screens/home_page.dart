@@ -1,7 +1,10 @@
 import 'package:droidcon_ke_flutter/screens/schedule_page.dart';
 import 'package:droidcon_ke_flutter/screens/venue_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
+import 'package:provider/provider.dart';
 
+import '../theme.dart';
 import 'info_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -27,30 +30,38 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    Brightness brightness = Provider.of<AppTheme>(context).getBrightness();
+    FlutterStatusbarcolor.setStatusBarColor(brightness == Brightness.light ? Theme.of(context).primaryColor : Theme.of(context).primaryColorDark);
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('DroidcoKE'),
-      ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: brightness == Brightness.light ? Theme.of(context).primaryColor : Theme.of(context).primaryColorDark,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.info),
-            title: Text('Info'),
+            icon: Icon(Icons.info, color: Colors.white),
+            title: Text(
+              'Info',
+              style: TextStyle(color: Colors.white),
+            ),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.calendar_today),
-            title: Text('Schedule'),
+            icon: Icon(Icons.calendar_today, color: Colors.white),
+            title: Text(
+              'Schedule',
+              style: TextStyle(color: Colors.white),
+            ),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.pin_drop),
-            title: Text('Venue'),
+            icon: Icon(Icons.pin_drop, color: Colors.white),
+            title: Text(
+              'Venue',
+              style: TextStyle(color: Colors.white),
+            ),
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.purple,
         onTap: _onItemTapped,
       ),
     );
