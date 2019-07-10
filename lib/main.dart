@@ -8,12 +8,13 @@ import 'package:provider/provider.dart';
 void main() => runApp(DroidconKeApp());
 
 class DroidconKeApp extends StatelessWidget {
+  final appTheme = AppTheme(Brightness.light);
+
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<AppTheme>.value(
-            value: AppTheme(Brightness.light)),
+        ChangeNotifierProvider<AppTheme>.value(value: appTheme),
         StreamProvider<FirebaseUser>.value(
             value: FirebaseAuth.instance.onAuthStateChanged)
       ],
@@ -26,13 +27,13 @@ class MaterialAppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     FirebaseUser user = Provider.of<FirebaseUser>(context);
-    Brightness brightness = Provider.of<AppTheme>(context).getBrightness();
+    /*Brightness brightness = Provider.of<AppTheme>(context).getBrightness();*/
     return MaterialApp(
       title: "DroidcoKE",
       theme: ThemeData(
         primaryColor: Colors.purple,
         primaryColorDark: Colors.black,
-        brightness: brightness,
+        brightness: Provider.of<AppTheme>(context).getBrightness(),
       ),
       home: (user == null) ? WelcomePage() : HomePage(),
     );

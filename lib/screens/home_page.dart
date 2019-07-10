@@ -22,6 +22,16 @@ class _HomePageState extends State<HomePage> {
     VenuePage(),
   ];
 
+  bool _isDark;
+  AppTheme appTheme;
+
+  checkBrightness(BuildContext context) {
+    setState(() {
+      if (appTheme == null) appTheme = Provider.of<AppTheme>(context);
+      _isDark = appTheme.getBrightness() == Brightness.dark;
+    });
+  }
+
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -30,14 +40,49 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    Brightness brightness = Provider.of<AppTheme>(context).getBrightness();
-    FlutterStatusbarcolor.setStatusBarColor(brightness == Brightness.light ? Theme.of(context).primaryColor : Theme.of(context).primaryColorDark);
+    checkBrightness(context);
+    FlutterStatusbarcolor.setStatusBarColor(_isDark
+        ? Theme.of(context).primaryColorDark
+        : Theme.of(context).primaryColor);
     return Scaffold(
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
+      appBar: AppBar(
+        title: Text(
+          "Schedule",
+          style: Theme.of(context).textTheme.title,
+        ),
+        centerTitle: true,
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        actions: <Widget>[
+          PopupMenuButton(
+              icon: Icon(Icons.more_vert, color: Theme.of(context).textTheme.body1.color,),
+              itemBuilder: (BuildContext context) {
+                return [
+                  PopupMenuItem(
+                    child: ListTile(
+                      // leading: Icon(Icons.edit),
+                      onTap: () {
+                        if (_isDark)
+                          appTheme.setBrightness(Brightness.light);
+                        else
+                          appTheme.setBrightness(Brightness.dark);
+                        checkBrightness(context);
+                        Navigator.pop(context);
+                      },
+                      title: Text("${_isDark ? 'Light' : 'Dark'} Theme"),
+                    ),
+                  ),
+                ];
+              }),
+        ],
+      ),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: brightness == Brightness.light ? Theme.of(context).primaryColor : Theme.of(context).primaryColorDark,
+        backgroundColor: _isDark
+            ? Theme.of(context).primaryColorDark
+            : Theme.of(context).primaryColor,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.info, color: Colors.white),
