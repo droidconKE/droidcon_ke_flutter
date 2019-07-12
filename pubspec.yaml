@@ -17,6 +17,7 @@ dependencies:
   cloud_firestore: any
   built_value: ^6.3.2
   built_collection: ^4.1.0
+  shared_preferences: ^0.5.3+2
 
 dev_dependencies:
   flutter_test:
