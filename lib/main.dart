@@ -29,7 +29,7 @@ class MaterialAppWidget extends StatelessWidget {
     FirebaseUser user = Provider.of<FirebaseUser>(context);
     /*Brightness brightness = Provider.of<AppTheme>(context).getBrightness();*/
     return MaterialApp(
-      title: "DroidcoKE",
+      title: "DroidconKE",
       theme: ThemeData(
         primaryColor: Colors.purple,
         primaryColorDark: Colors.black,

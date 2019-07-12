@@ -26,10 +26,11 @@ dev_dependencies:
   built_value_generator: ^6.1.6
   build_test: any
   flutter_launcher_icons: ^0.7.2+1
+
 flutter_icons:
   android: "ic_launcher"
   ios: true
-  image_path: "assets/images/icon.png"
+  image_path: "assets/images/icon-circle.png"
 
 flutter:
   uses-material-design: true
