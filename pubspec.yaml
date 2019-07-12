@@ -30,7 +30,7 @@ dev_dependencies:
 flutter_icons:
   android: "ic_launcher"
   ios: true
-  image_path: "assets/images/icon-circle.png"
+  image_path: "assets/images/icon.png"
 
 flutter:
   uses-material-design: true
