@@ -61,7 +61,10 @@ class _HomePageState extends State<HomePage> {
         elevation: 0,
         actions: <Widget>[
           PopupMenuButton(
-              icon: Icon(Icons.more_vert, color: Theme.of(context).textTheme.body1.color,),
+              icon: Icon(
+                Icons.more_vert,
+                color: Theme.of(context).textTheme.body1.color,
+              ),
               itemBuilder: (BuildContext context) {
                 return [
                   PopupMenuItem(
@@ -78,7 +81,7 @@ class _HomePageState extends State<HomePage> {
                       title: Text("${_isDark ? 'Light' : 'Dark'} Theme"),
                     ),
                   ),
-                  if(user != null)
+                  if (user != null)
                     PopupMenuItem(
                       child: ListTile(
                         // leading: Icon(Icons.edit),

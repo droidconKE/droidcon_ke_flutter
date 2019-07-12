@@ -28,7 +28,11 @@ class _WelcomePageState extends State<WelcomePage> {
               "assets/images/logo-name.png",
               fit: BoxFit.fitWidth,
             ),
-            Text("First Sub-Saharan Android Focused Developer conference", textAlign: TextAlign.center, style: Theme.of(context).textTheme.title,),
+            Text(
+              "First Sub-Saharan Android Focused Developer conference",
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.title,
+            ),
             Divider(
               height: 100,
               color: Colors.grey,
@@ -37,12 +41,22 @@ class _WelcomePageState extends State<WelcomePage> {
               children: <Widget>[
                 Icon(Icons.calendar_today),
                 Expanded(
-                  child: Text("August 8th - 9th 2019", textAlign: TextAlign.center, style: Theme.of(context).textTheme.title,),
+                  child: Text(
+                    "August 8th - 9th 2019",
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.title,
+                  ),
                 ),
               ],
             ),
-            SizedBox(height: 50,),
-            Text("iHub Nairobi", textAlign: TextAlign.center, style: Theme.of(context).textTheme.title,),
+            SizedBox(
+              height: 50,
+            ),
+            Text(
+              "iHub Nairobi",
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.title,
+            ),
             Divider(
               height: 100,
               color: Colors.grey,
@@ -68,7 +82,9 @@ class _WelcomePageState extends State<WelcomePage> {
                 child: Row(
                   children: <Widget>[
                     Image.asset(
-                        "assets/images/google-signin.png", height: 15,),
+                      "assets/images/google-signin.png",
+                      height: 15,
+                    ),
                     Expanded(
                       child: Text(
                         "Sign In",
@@ -91,8 +107,14 @@ class _WelcomePageState extends State<WelcomePage> {
                   ),
                 ],
               ),
-            SizedBox(height: 50,),
-            Text("\u00a9 2019 droidconKE", textAlign: TextAlign.center, style: Theme.of(context).textTheme.title,),
+            SizedBox(
+              height: 50,
+            ),
+            Text(
+              "\u00a9 2019 droidconKE",
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.title,
+            ),
           ],
         ),
       ),

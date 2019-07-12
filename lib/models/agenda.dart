@@ -2,7 +2,6 @@ library agenda;
 
 import 'dart:convert';
 
-import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -11,14 +10,19 @@ import 'serializers.dart';
 part 'agenda.g.dart';
 
 abstract class Agenda implements Built<Agenda, AgendaBuilder> {
+  @nullable
   int get id;
 
+  @nullable
   String get background_color;
 
+  @nullable
   String get iconUrl;
 
+  @nullable
   String get time;
 
+  @nullable
   String get title;
 
   Agenda._();

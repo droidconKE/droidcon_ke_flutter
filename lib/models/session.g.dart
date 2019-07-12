@@ -17,60 +17,115 @@ class _$SessionSerializer implements StructuredSerializer<Session> {
   @override
   Iterable<Object> serialize(Serializers serializers, Session object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
-      'id',
-      serializers.serialize(object.id, specifiedType: const FullType(int)),
-      'am_pm_label',
-      serializers.serialize(object.am_pm_label,
-          specifiedType: const FullType(String)),
-      'day_number',
-      serializers.serialize(object.day_number,
-          specifiedType: const FullType(String)),
-      'description',
-      serializers.serialize(object.description,
-          specifiedType: const FullType(String)),
-      'duration',
-      serializers.serialize(object.duration,
-          specifiedType: const FullType(String)),
-      'notification_slug',
-      serializers.serialize(object.notification_slug,
-          specifiedType: const FullType(String)),
-      'photoUrl',
-      serializers.serialize(object.photoUrl,
-          specifiedType: const FullType(String)),
-      'room',
-      serializers.serialize(object.room, specifiedType: const FullType(String)),
-      'session_audience',
-      serializers.serialize(object.session_audience,
-          specifiedType: const FullType(String)),
-      'session_color',
-      serializers.serialize(object.session_color,
-          specifiedType: const FullType(String)),
-      'speaker_id',
-      serializers.serialize(object.speaker_id,
-          specifiedType:
-              const FullType(BuiltList, const [const FullType(int)])),
-      'time',
-      serializers.serialize(object.time, specifiedType: const FullType(String)),
-      'time_in_am',
-      serializers.serialize(object.time_in_am,
-          specifiedType: const FullType(String)),
-      'title',
-      serializers.serialize(object.title,
-          specifiedType: const FullType(String)),
-      'topic',
-      serializers.serialize(object.topic,
-          specifiedType: const FullType(String)),
-      'type',
-      serializers.serialize(object.type, specifiedType: const FullType(String)),
-      'url',
-      serializers.serialize(object.url, specifiedType: const FullType(String)),
-    ];
+    final result = <Object>[];
+    if (object.id != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(object.id,
+            specifiedType: const FullType(int)));
+    }
+    if (object.am_pm_label != null) {
+      result
+        ..add('am_pm_label')
+        ..add(serializers.serialize(object.am_pm_label,
+            specifiedType: const FullType(String)));
+    }
+    if (object.day_number != null) {
+      result
+        ..add('day_number')
+        ..add(serializers.serialize(object.day_number,
+            specifiedType: const FullType(String)));
+    }
+    if (object.description != null) {
+      result
+        ..add('description')
+        ..add(serializers.serialize(object.description,
+            specifiedType: const FullType(String)));
+    }
+    if (object.duration != null) {
+      result
+        ..add('duration')
+        ..add(serializers.serialize(object.duration,
+            specifiedType: const FullType(String)));
+    }
+    if (object.notification_slug != null) {
+      result
+        ..add('notification_slug')
+        ..add(serializers.serialize(object.notification_slug,
+            specifiedType: const FullType(String)));
+    }
+    if (object.photoUrl != null) {
+      result
+        ..add('photoUrl')
+        ..add(serializers.serialize(object.photoUrl,
+            specifiedType: const FullType(String)));
+    }
+    if (object.room != null) {
+      result
+        ..add('room')
+        ..add(serializers.serialize(object.room,
+            specifiedType: const FullType(String)));
+    }
     if (object.room_id != null) {
       result
         ..add('room_id')
         ..add(serializers.serialize(object.room_id,
             specifiedType: const FullType(int)));
+    }
+    if (object.session_audience != null) {
+      result
+        ..add('session_audience')
+        ..add(serializers.serialize(object.session_audience,
+            specifiedType: const FullType(String)));
+    }
+    if (object.session_color != null) {
+      result
+        ..add('session_color')
+        ..add(serializers.serialize(object.session_color,
+            specifiedType: const FullType(String)));
+    }
+    if (object.speaker_id != null) {
+      result
+        ..add('speaker_id')
+        ..add(serializers.serialize(object.speaker_id,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(int)])));
+    }
+    if (object.time != null) {
+      result
+        ..add('time')
+        ..add(serializers.serialize(object.time,
+            specifiedType: const FullType(String)));
+    }
+    if (object.time_in_am != null) {
+      result
+        ..add('time_in_am')
+        ..add(serializers.serialize(object.time_in_am,
+            specifiedType: const FullType(String)));
+    }
+    if (object.title != null) {
+      result
+        ..add('title')
+        ..add(serializers.serialize(object.title,
+            specifiedType: const FullType(String)));
+    }
+    if (object.topic != null) {
+      result
+        ..add('topic')
+        ..add(serializers.serialize(object.topic,
+            specifiedType: const FullType(String)));
+    }
+    if (object.type != null) {
+      result
+        ..add('type')
+        ..add(serializers.serialize(object.type,
+            specifiedType: const FullType(String)));
+    }
+    if (object.url != null) {
+      result
+        ..add('url')
+        ..add(serializers.serialize(object.url,
+            specifiedType: const FullType(String)));
     }
     return result;
   }
@@ -227,59 +282,7 @@ class _$Session extends Session {
       this.topic,
       this.type,
       this.url})
-      : super._() {
-    if (id == null) {
-      throw new BuiltValueNullFieldError('Session', 'id');
-    }
-    if (am_pm_label == null) {
-      throw new BuiltValueNullFieldError('Session', 'am_pm_label');
-    }
-    if (day_number == null) {
-      throw new BuiltValueNullFieldError('Session', 'day_number');
-    }
-    if (description == null) {
-      throw new BuiltValueNullFieldError('Session', 'description');
-    }
-    if (duration == null) {
-      throw new BuiltValueNullFieldError('Session', 'duration');
-    }
-    if (notification_slug == null) {
-      throw new BuiltValueNullFieldError('Session', 'notification_slug');
-    }
-    if (photoUrl == null) {
-      throw new BuiltValueNullFieldError('Session', 'photoUrl');
-    }
-    if (room == null) {
-      throw new BuiltValueNullFieldError('Session', 'room');
-    }
-    if (session_audience == null) {
-      throw new BuiltValueNullFieldError('Session', 'session_audience');
-    }
-    if (session_color == null) {
-      throw new BuiltValueNullFieldError('Session', 'session_color');
-    }
-    if (speaker_id == null) {
-      throw new BuiltValueNullFieldError('Session', 'speaker_id');
-    }
-    if (time == null) {
-      throw new BuiltValueNullFieldError('Session', 'time');
-    }
-    if (time_in_am == null) {
-      throw new BuiltValueNullFieldError('Session', 'time_in_am');
-    }
-    if (title == null) {
-      throw new BuiltValueNullFieldError('Session', 'title');
-    }
-    if (topic == null) {
-      throw new BuiltValueNullFieldError('Session', 'topic');
-    }
-    if (type == null) {
-      throw new BuiltValueNullFieldError('Session', 'type');
-    }
-    if (url == null) {
-      throw new BuiltValueNullFieldError('Session', 'url');
-    }
-  }
+      : super._();
 
   @override
   Session rebuild(void Function(SessionBuilder) updates) =>
@@ -387,80 +390,116 @@ class SessionBuilder implements Builder<Session, SessionBuilder> {
   _$Session _$v;
 
   int _id;
+
   int get id => _$this._id;
+
   set id(int id) => _$this._id = id;
 
   String _am_pm_label;
+
   String get am_pm_label => _$this._am_pm_label;
+
   set am_pm_label(String am_pm_label) => _$this._am_pm_label = am_pm_label;
 
   String _day_number;
+
   String get day_number => _$this._day_number;
+
   set day_number(String day_number) => _$this._day_number = day_number;
 
   String _description;
+
   String get description => _$this._description;
+
   set description(String description) => _$this._description = description;
 
   String _duration;
+
   String get duration => _$this._duration;
+
   set duration(String duration) => _$this._duration = duration;
 
   String _notification_slug;
+
   String get notification_slug => _$this._notification_slug;
+
   set notification_slug(String notification_slug) =>
       _$this._notification_slug = notification_slug;
 
   String _photoUrl;
+
   String get photoUrl => _$this._photoUrl;
+
   set photoUrl(String photoUrl) => _$this._photoUrl = photoUrl;
 
   String _room;
+
   String get room => _$this._room;
+
   set room(String room) => _$this._room = room;
 
   int _room_id;
+
   int get room_id => _$this._room_id;
+
   set room_id(int room_id) => _$this._room_id = room_id;
 
   String _session_audience;
+
   String get session_audience => _$this._session_audience;
+
   set session_audience(String session_audience) =>
       _$this._session_audience = session_audience;
 
   String _session_color;
+
   String get session_color => _$this._session_color;
+
   set session_color(String session_color) =>
       _$this._session_color = session_color;
 
   ListBuilder<int> _speaker_id;
+
   ListBuilder<int> get speaker_id =>
       _$this._speaker_id ??= new ListBuilder<int>();
+
   set speaker_id(ListBuilder<int> speaker_id) =>
       _$this._speaker_id = speaker_id;
 
   String _time;
+
   String get time => _$this._time;
+
   set time(String time) => _$this._time = time;
 
   String _time_in_am;
+
   String get time_in_am => _$this._time_in_am;
+
   set time_in_am(String time_in_am) => _$this._time_in_am = time_in_am;
 
   String _title;
+
   String get title => _$this._title;
+
   set title(String title) => _$this._title = title;
 
   String _topic;
+
   String get topic => _$this._topic;
+
   set topic(String topic) => _$this._topic = topic;
 
   String _type;
+
   String get type => _$this._type;
+
   set type(String type) => _$this._type = type;
 
   String _url;
+
   String get url => _$this._url;
+
   set url(String url) => _$this._url = url;
 
   SessionBuilder();
@@ -520,7 +559,7 @@ class SessionBuilder implements Builder<Session, SessionBuilder> {
               room_id: room_id,
               session_audience: session_audience,
               session_color: session_color,
-              speaker_id: speaker_id.build(),
+              speaker_id: _speaker_id?.build(),
               time: time,
               time_in_am: time_in_am,
               title: title,
@@ -531,7 +570,7 @@ class SessionBuilder implements Builder<Session, SessionBuilder> {
       String _$failedField;
       try {
         _$failedField = 'speaker_id';
-        speaker_id.build();
+        _speaker_id?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'Session', _$failedField, e.toString());

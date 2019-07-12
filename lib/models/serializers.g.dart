@@ -8,7 +8,19 @@ part of 'serializers.dart';
 
 Serializers _$serializers = (new Serializers().toBuilder()
       ..add(Agenda.serializer)
+      ..add(Announcement.serializer)
+      ..add(EventFeedback.serializer)
+      ..add(EventType.serializer)
+      ..add(Organizer.serializer)
+      ..add(Room.serializer)
       ..add(Session.serializer)
+      ..add(SessionFeedback.serializer)
+      ..add(SessionTopic.serializer)
+      ..add(SessionType.serializer)
+      ..add(Speaker.serializer)
+      ..add(Sponsor.serializer)
+      ..add(StarredSession.serializer)
+      ..add(User.serializer)
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(int)]),
           () => new ListBuilder<int>()))

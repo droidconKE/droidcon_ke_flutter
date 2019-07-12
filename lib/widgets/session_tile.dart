@@ -22,7 +22,8 @@ class _SessionTileState extends State<SessionTile> {
             children: <Widget>[
               Text("${widget.session.title}",
                   style: Theme.of(context).textTheme.title),
-              Text("${widget.session.duration} / ${widget.session.room} / ${widget.session.time_in_am} ${widget.session.am_pm_label}")
+              Text(
+                  "${widget.session.duration} / ${widget.session.room} / ${widget.session.time_in_am} ${widget.session.am_pm_label}")
             ],
           ),
           subtitle: Row(

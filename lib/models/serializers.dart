@@ -7,8 +7,20 @@ import 'index.dart';
 part 'serializers.g.dart';
 
 @SerializersFor(const [
-  Session,
   Agenda,
+  Announcement,
+  EventFeedback,
+  EventType,
+  Organizer,
+  Room,
+  Session,
+  SessionFeedback,
+  SessionTopic,
+  SessionType,
+  Speaker,
+  Sponsor,
+  StarredSession,
+  User,
 ])
 final Serializers serializers =
     (_$serializers.toBuilder()..addPlugin(StandardJsonPlugin())).build();

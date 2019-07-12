@@ -17,22 +17,37 @@ class _$AgendaSerializer implements StructuredSerializer<Agenda> {
   @override
   Iterable<Object> serialize(Serializers serializers, Agenda object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
-      'id',
-      serializers.serialize(object.id, specifiedType: const FullType(int)),
-      'background_color',
-      serializers.serialize(object.background_color,
-          specifiedType: const FullType(String)),
-      'iconUrl',
-      serializers.serialize(object.iconUrl,
-          specifiedType: const FullType(String)),
-      'time',
-      serializers.serialize(object.time, specifiedType: const FullType(String)),
-      'title',
-      serializers.serialize(object.title,
-          specifiedType: const FullType(String)),
-    ];
-
+    final result = <Object>[];
+    if (object.id != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(object.id,
+            specifiedType: const FullType(int)));
+    }
+    if (object.background_color != null) {
+      result
+        ..add('background_color')
+        ..add(serializers.serialize(object.background_color,
+            specifiedType: const FullType(String)));
+    }
+    if (object.iconUrl != null) {
+      result
+        ..add('iconUrl')
+        ..add(serializers.serialize(object.iconUrl,
+            specifiedType: const FullType(String)));
+    }
+    if (object.time != null) {
+      result
+        ..add('time')
+        ..add(serializers.serialize(object.time,
+            specifiedType: const FullType(String)));
+    }
+    if (object.title != null) {
+      result
+        ..add('title')
+        ..add(serializers.serialize(object.title,
+            specifiedType: const FullType(String)));
+    }
     return result;
   }
 
@@ -91,23 +106,7 @@ class _$Agenda extends Agenda {
 
   _$Agenda._(
       {this.id, this.background_color, this.iconUrl, this.time, this.title})
-      : super._() {
-    if (id == null) {
-      throw new BuiltValueNullFieldError('Agenda', 'id');
-    }
-    if (background_color == null) {
-      throw new BuiltValueNullFieldError('Agenda', 'background_color');
-    }
-    if (iconUrl == null) {
-      throw new BuiltValueNullFieldError('Agenda', 'iconUrl');
-    }
-    if (time == null) {
-      throw new BuiltValueNullFieldError('Agenda', 'time');
-    }
-    if (title == null) {
-      throw new BuiltValueNullFieldError('Agenda', 'title');
-    }
-  }
+      : super._();
 
   @override
   Agenda rebuild(void Function(AgendaBuilder) updates) =>
@@ -153,24 +152,34 @@ class AgendaBuilder implements Builder<Agenda, AgendaBuilder> {
   _$Agenda _$v;
 
   int _id;
+
   int get id => _$this._id;
+
   set id(int id) => _$this._id = id;
 
   String _background_color;
+
   String get background_color => _$this._background_color;
+
   set background_color(String background_color) =>
       _$this._background_color = background_color;
 
   String _iconUrl;
+
   String get iconUrl => _$this._iconUrl;
+
   set iconUrl(String iconUrl) => _$this._iconUrl = iconUrl;
 
   String _time;
+
   String get time => _$this._time;
+
   set time(String time) => _$this._time = time;
 
   String _title;
+
   String get title => _$this._title;
+
   set title(String title) => _$this._title = title;
 
   AgendaBuilder();
