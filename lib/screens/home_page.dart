@@ -1,5 +1,6 @@
 import 'package:droidcon_ke_flutter/screens/schedule_page.dart';
 import 'package:droidcon_ke_flutter/screens/venue_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import 'package:provider/provider.dart';
@@ -16,6 +17,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
   static List<Widget> _widgetOptions = <Widget>[
     InfoPage(),
     SchedulePage(),
@@ -44,6 +46,7 @@ class _HomePageState extends State<HomePage> {
     FlutterStatusbarcolor.setStatusBarColor(_isDark
         ? Theme.of(context).primaryColorDark
         : Theme.of(context).primaryColor);
+    FirebaseUser user = Provider.of<FirebaseUser>(context);
     return Scaffold(
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
@@ -75,6 +78,17 @@ class _HomePageState extends State<HomePage> {
                       title: Text("${_isDark ? 'Light' : 'Dark'} Theme"),
                     ),
                   ),
+                  if(user != null)
+                    PopupMenuItem(
+                      child: ListTile(
+                        // leading: Icon(Icons.edit),
+                        onTap: () {
+                          _auth.signOut();
+                          Navigator.pop(context);
+                        },
+                        title: Text("Logout"),
+                      ),
+                    ),
                 ];
               }),
         ],
