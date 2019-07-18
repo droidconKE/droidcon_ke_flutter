@@ -11,13 +11,15 @@ dependencies:
     sdk: flutter
 
   provider: ^3.0.0+1
-  firebase_auth: ^0.11.1+7
+  firebase_auth: ^0.11.1+10
   google_sign_in: ^4.0.4
   flutter_statusbarcolor: any
   cloud_firestore: any
   built_value: ^6.3.2
   built_collection: ^4.1.0
-  shared_preferences: ^0.5.3+2
+  shared_preferences: ^0.5.3+4
+  google_maps_flutter: ^0.5.19+2
+  permission_handler: ^3.2.1
 
 dev_dependencies:
   flutter_test:
