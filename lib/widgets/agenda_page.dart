@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:droidcon_ke_flutter/models/index.dart';
 import 'package:droidcon_ke_flutter/utils/hex_color.dart';
+import 'package:droidcon_ke_flutter/utils/time.dart';
 import 'package:flutter/material.dart';
 
 class AgendaPage extends StatefulWidget {
@@ -28,19 +29,23 @@ class _AgendaPageState extends State<AgendaPage> {
       stream: streamController.stream,
       builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
         if (snapshot.hasData) {
+          List<Agenda> agenda = snapshot.data.documents
+              .map((doc) => Agenda.fromMap(doc.data))
+              .toList()
+              ..sort((a, b) {
+                return stringToTimeOfDay(a.time).toString().compareTo(stringToTimeOfDay(b.time).toString());
+              });
           return ListView.builder(
-            itemCount: snapshot.data.documents.length,
+            itemCount: agenda.length,
             itemBuilder: (context, index) {
-              Agenda agenda =
-                  Agenda.fromMap(snapshot.data.documents[index].data);
               return Column(
                 children: <Widget>[
                   Container(
-                    color: HexColor(agenda.background_color),
+                    color: HexColor(agenda[index].background_color),
                     child: ListTile(
-                      leading: Image.network(agenda.iconUrl),
-                      title: Text("${agenda.title}"),
-                      subtitle: Text("${agenda.time}"),
+                      leading: Image.network(agenda[index].iconUrl),
+                      title: Text("${agenda[index].title}"),
+                      subtitle: Text("${agenda[index].time}"),
                     ),
                   ),
                   SizedBox(

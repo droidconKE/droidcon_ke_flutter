@@ -30,6 +30,7 @@ class MaterialAppWidget extends StatelessWidget {
     /*Brightness brightness = Provider.of<AppTheme>(context).getBrightness();*/
     return MaterialApp(
       title: "DroidconKE",
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primaryColor: Colors.purple,
         primaryColorDark: Colors.black,

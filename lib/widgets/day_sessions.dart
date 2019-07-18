@@ -36,12 +36,26 @@ class _DaySessionsState extends State<DaySessions> {
       stream: streamController.stream,
       builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
         if (snapshot.hasData) {
+          List<Session> sessions = snapshot.data.documents
+              .map((doc) => Session.fromMap(doc.data))
+              .toList()
+                ..sort((a, b) {
+                  var aHour = int.parse(a.time_in_am.split(":")[0].trim());
+                  var aTime = TimeOfDay(
+                      hour:  aHour +
+                          (a.am_pm_label.toLowerCase().contains("pm") && aHour != 12 ? 12 : 0),
+                      minute: int.parse(a.time_in_am.split(":")[1].trim()));
+                  var bHour = int.parse(b.time_in_am.split(":")[0].trim());
+                  var bTime = TimeOfDay(
+                      hour:  bHour +
+                          (b.am_pm_label.toLowerCase().contains("pm") && bHour != 12 ? 12 : 0),
+                      minute: int.parse(b.time_in_am.split(":")[1].trim()));
+                  return aTime.toString().compareTo(bTime.toString());
+                });
           return ListView.builder(
-            itemCount: snapshot.data.documents.length,
+            itemCount: sessions.length,
             itemBuilder: (context, index) {
-              Session session =
-                  Session.fromMap(snapshot.data.documents[index].data);
-              return SessionTile(session: session);
+              return SessionTile(session: sessions[index]);
             },
           );
         }
