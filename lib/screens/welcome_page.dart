@@ -4,6 +4,8 @@ import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:provider/provider.dart';
 
+import '../theme.dart';
+
 class WelcomePage extends StatefulWidget {
   @override
   _WelcomePageState createState() => _WelcomePageState();
@@ -12,18 +14,53 @@ class WelcomePage extends StatefulWidget {
 class _WelcomePageState extends State<WelcomePage> {
   final GoogleSignIn _googleSignIn = GoogleSignIn();
   final FirebaseAuth _auth = FirebaseAuth.instance;
+  bool authenticating = false;
+  bool _isDark;
+  AppTheme appTheme;
+
+  checkBrightness(BuildContext context) {
+    setState(() {
+      if (appTheme == null) appTheme = Provider.of<AppTheme>(context);
+      _isDark = appTheme.getBrightness() == Brightness.dark;
+    });
+  }
+
+  setAuthenticating(bool val) {
+    setState(() {
+      authenticating = val;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     FirebaseUser user = Provider.of<FirebaseUser>(context);
     FlutterStatusbarcolor.setStatusBarColor(Colors.transparent);
+    checkBrightness(context);
     return Scaffold(
-      backgroundColor: Color(0xFFFFD54F),
+      backgroundColor: !_isDark
+          ? Color(0xFFFFD54F)
+          : Theme.of(context).scaffoldBackgroundColor,
       body: Container(
         padding: EdgeInsets.symmetric(horizontal: 30),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: <Widget>[
+                IconButton(
+                  icon: Icon(_isDark ? Icons.brightness_high : Icons.brightness_3),
+                  onPressed: () {
+                    if (_isDark)
+                      appTheme.setBrightness(Brightness.light);
+                    else
+                      appTheme.setBrightness(Brightness.dark);
+                    checkBrightness(context);
+                  },
+                ),
+              ],
+            ),
             Image.asset(
               "assets/images/logo-name.png",
               fit: BoxFit.fitWidth,
@@ -58,27 +95,31 @@ class _WelcomePageState extends State<WelcomePage> {
               style: Theme.of(context).textTheme.title,
             ),
             Divider(
-              height: 100,
+              height: 50,
               color: Colors.grey,
             ),
             if (user == null)
-              FlatButton(
+              OutlineButton(
                 onPressed: () async {
-                  final GoogleSignInAccount googleUser =
-                      await _googleSignIn.signIn();
-                  final GoogleSignInAuthentication googleAuth =
-                      await googleUser.authentication;
+                  setAuthenticating(true);
+                  try {
+                    final GoogleSignInAccount googleUser =
+                        await _googleSignIn.signIn();
+                    final GoogleSignInAuthentication googleAuth =
+                        await googleUser.authentication;
 
-                  final AuthCredential credential =
-                      GoogleAuthProvider.getCredential(
-                    accessToken: googleAuth.accessToken,
-                    idToken: googleAuth.idToken,
-                  );
+                    final AuthCredential credential =
+                        GoogleAuthProvider.getCredential(
+                      accessToken: googleAuth.accessToken,
+                      idToken: googleAuth.idToken,
+                    );
 
-                  final FirebaseUser user =
-                      await _auth.signInWithCredential(credential);
+                    final FirebaseUser user =
+                        await _auth.signInWithCredential(credential);
+                  } catch (e) {} finally {
+                    setAuthenticating(false);
+                  }
                 },
-                color: Colors.white,
                 child: Row(
                   children: <Widget>[
                     Image.asset(
@@ -91,6 +132,13 @@ class _WelcomePageState extends State<WelcomePage> {
                         textAlign: TextAlign.center,
                       ),
                     ),
+                    authenticating
+                        ? SizedBox(
+                            child: CircularProgressIndicator(),
+                            height: 15,
+                            width: 15,
+                          )
+                        : Container(),
                   ],
                 ),
               ),
