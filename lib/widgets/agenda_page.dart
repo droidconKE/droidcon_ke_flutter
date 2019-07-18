@@ -65,4 +65,10 @@ class _AgendaPageState extends State<AgendaPage> {
       },
     );
   }
+
+  @override
+  void dispose() {
+    streamController.close();
+    super.dispose();
+  }
 }

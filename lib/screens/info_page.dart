@@ -1,7 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'dart:async';
 
-import '../theme.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:droidcon_ke_flutter/models/index.dart';
+import 'package:flutter/material.dart';
 
 class InfoPage extends StatefulWidget {
   @override
@@ -9,51 +10,43 @@ class InfoPage extends StatefulWidget {
 }
 
 class _InfoPageState extends State<InfoPage> {
-  bool _isDark;
-  AppTheme appTheme;
+  final db = Firestore.instance;
+  final StreamController<QuerySnapshot> streamController =
+      StreamController<QuerySnapshot>.broadcast();
 
-  checkBrightness(BuildContext context) {
-    setState(() {
-      if (appTheme == null) appTheme = Provider.of<AppTheme>(context);
-      _isDark = appTheme.getBrightness() == Brightness.dark;
-    });
+  @override
+  void initState() {
+    streamController.addStream(
+        db.collection('about_droidconKE').limit(1).getDocuments().asStream());
+    super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    checkBrightness(context);
-    return Center(
-      child: Container(
-        height: 100,
-        child: Column(
-          children: <Widget>[
-            Text(
-              'Info',
-            ),
-            OutlineButton(
-              onPressed: () {
-                if (_isDark)
-                  appTheme.setBrightness(Brightness.light);
-                else
-                  appTheme.setBrightness(Brightness.dark);
-                checkBrightness(context);
-              },
-              child: Text("${_isDark ? 'Light' : 'Dark'} Theme"),
-            ),
-            /*Switch(
-              value: _isDark,
-              onChanged: (value) {
-                print("Tring to change theme...: $_isDark");
-                if (value)
-                  appTheme.setTheme(ThemeData.light());
-                else
-                  appTheme.setTheme(ThemeData.dark());
-                checkBrightness(context);
-              },
-            ),*/
-          ],
-        ),
-      ),
-    );
+    return StreamBuilder<QuerySnapshot>(
+        stream: streamController.stream,
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            About about = About.fromMap(snapshot.data.documents[0].data);
+            return Container(
+              padding: EdgeInsets.all(20),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Image.network(about.logoUrl, width: 200,),
+                  SizedBox(height: 50,),
+                  Text(about.bio),
+                ],
+              ),
+            );
+          }
+          return Center(child: Text("Info"));
+        });
+  }
+
+  @override
+  void dispose() {
+    streamController.close();
+    super.dispose();
   }
 }

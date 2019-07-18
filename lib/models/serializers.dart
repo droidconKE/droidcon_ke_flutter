@@ -7,6 +7,7 @@ import 'index.dart';
 part 'serializers.g.dart';
 
 @SerializersFor(const [
+  About,
   Agenda,
   Announcement,
   EventFeedback,

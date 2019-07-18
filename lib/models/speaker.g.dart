@@ -171,40 +171,28 @@ class SpeakerBuilder implements Builder<Speaker, SpeakerBuilder> {
   _$Speaker _$v;
 
   String _bio;
-
   String get bio => _$this._bio;
-
   set bio(String bio) => _$this._bio = bio;
 
   String _company;
-
   String get company => _$this._company;
-
   set company(String company) => _$this._company = company;
 
   String _name;
-
   String get name => _$this._name;
-
   set name(String name) => _$this._name = name;
 
   String _photoUrl;
-
   String get photoUrl => _$this._photoUrl;
-
   set photoUrl(String photoUrl) => _$this._photoUrl = photoUrl;
 
   String _twitterHandle;
-
   String get twitterHandle => _$this._twitterHandle;
-
   set twitterHandle(String twitterHandle) =>
       _$this._twitterHandle = twitterHandle;
 
   int _id;
-
   int get id => _$this._id;
-
   set id(int id) => _$this._id = id;
 
   SpeakerBuilder();

@@ -1,21 +1,21 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of room;
+part of about;
 
 // **************************************************************************
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<Room> _$roomSerializer = new _$RoomSerializer();
+Serializer<About> _$aboutSerializer = new _$AboutSerializer();
 
-class _$RoomSerializer implements StructuredSerializer<Room> {
+class _$AboutSerializer implements StructuredSerializer<About> {
   @override
-  final Iterable<Type> types = const [Room, _$Room];
+  final Iterable<Type> types = const [About, _$About];
   @override
-  final String wireName = 'Room';
+  final String wireName = 'About';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, Room object,
+  Iterable<Object> serialize(Serializers serializers, About object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[];
     if (object.id != null) {
@@ -30,19 +30,25 @@ class _$RoomSerializer implements StructuredSerializer<Room> {
         ..add(serializers.serialize(object.name,
             specifiedType: const FullType(String)));
     }
-    if (object.description != null) {
+    if (object.bio != null) {
       result
-        ..add('description')
-        ..add(serializers.serialize(object.description,
+        ..add('bio')
+        ..add(serializers.serialize(object.bio,
+            specifiedType: const FullType(String)));
+    }
+    if (object.logoUrl != null) {
+      result
+        ..add('logoUrl')
+        ..add(serializers.serialize(object.logoUrl,
             specifiedType: const FullType(String)));
     }
     return result;
   }
 
   @override
-  Room deserialize(Serializers serializers, Iterable<Object> serialized,
+  About deserialize(Serializers serializers, Iterable<Object> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new RoomBuilder();
+    final result = new AboutBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -58,8 +64,12 @@ class _$RoomSerializer implements StructuredSerializer<Room> {
           result.name = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'description':
-          result.description = serializers.deserialize(value,
+        case 'bio':
+          result.bio = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'logoUrl':
+          result.logoUrl = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
       }
@@ -69,53 +79,57 @@ class _$RoomSerializer implements StructuredSerializer<Room> {
   }
 }
 
-class _$Room extends Room {
+class _$About extends About {
   @override
   final int id;
   @override
   final String name;
   @override
-  final String description;
+  final String bio;
+  @override
+  final String logoUrl;
 
-  factory _$Room([void Function(RoomBuilder) updates]) =>
-      (new RoomBuilder()..update(updates)).build();
+  factory _$About([void Function(AboutBuilder) updates]) =>
+      (new AboutBuilder()..update(updates)).build();
 
-  _$Room._({this.id, this.name, this.description}) : super._();
+  _$About._({this.id, this.name, this.bio, this.logoUrl}) : super._();
 
   @override
-  Room rebuild(void Function(RoomBuilder) updates) =>
+  About rebuild(void Function(AboutBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  RoomBuilder toBuilder() => new RoomBuilder()..replace(this);
+  AboutBuilder toBuilder() => new AboutBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is Room &&
+    return other is About &&
         id == other.id &&
         name == other.name &&
-        description == other.description;
+        bio == other.bio &&
+        logoUrl == other.logoUrl;
   }
 
   @override
   int get hashCode {
-    return $jf(
-        $jc($jc($jc(0, id.hashCode), name.hashCode), description.hashCode));
+    return $jf($jc($jc($jc($jc(0, id.hashCode), name.hashCode), bio.hashCode),
+        logoUrl.hashCode));
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('Room')
+    return (newBuiltValueToStringHelper('About')
           ..add('id', id)
           ..add('name', name)
-          ..add('description', description))
+          ..add('bio', bio)
+          ..add('logoUrl', logoUrl))
         .toString();
   }
 }
 
-class RoomBuilder implements Builder<Room, RoomBuilder> {
-  _$Room _$v;
+class AboutBuilder implements Builder<About, AboutBuilder> {
+  _$About _$v;
 
   int _id;
   int get id => _$this._id;
@@ -125,39 +139,44 @@ class RoomBuilder implements Builder<Room, RoomBuilder> {
   String get name => _$this._name;
   set name(String name) => _$this._name = name;
 
-  String _description;
-  String get description => _$this._description;
-  set description(String description) => _$this._description = description;
+  String _bio;
+  String get bio => _$this._bio;
+  set bio(String bio) => _$this._bio = bio;
 
-  RoomBuilder();
+  String _logoUrl;
+  String get logoUrl => _$this._logoUrl;
+  set logoUrl(String logoUrl) => _$this._logoUrl = logoUrl;
 
-  RoomBuilder get _$this {
+  AboutBuilder();
+
+  AboutBuilder get _$this {
     if (_$v != null) {
       _id = _$v.id;
       _name = _$v.name;
-      _description = _$v.description;
+      _bio = _$v.bio;
+      _logoUrl = _$v.logoUrl;
       _$v = null;
     }
     return this;
   }
 
   @override
-  void replace(Room other) {
+  void replace(About other) {
     if (other == null) {
       throw new ArgumentError.notNull('other');
     }
-    _$v = other as _$Room;
+    _$v = other as _$About;
   }
 
   @override
-  void update(void Function(RoomBuilder) updates) {
+  void update(void Function(AboutBuilder) updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  _$Room build() {
+  _$About build() {
     final _$result =
-        _$v ?? new _$Room._(id: id, name: name, description: description);
+        _$v ?? new _$About._(id: id, name: name, bio: bio, logoUrl: logoUrl);
     replace(_$result);
     return _$result;
   }

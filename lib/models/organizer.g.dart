@@ -149,33 +149,23 @@ class OrganizerBuilder implements Builder<Organizer, OrganizerBuilder> {
   _$Organizer _$v;
 
   String _bio;
-
   String get bio => _$this._bio;
-
   set bio(String bio) => _$this._bio = bio;
 
   int _id;
-
   int get id => _$this._id;
-
   set id(int id) => _$this._id = id;
 
   String _logoUrl;
-
   String get logoUrl => _$this._logoUrl;
-
   set logoUrl(String logoUrl) => _$this._logoUrl = logoUrl;
 
   String _name;
-
   String get name => _$this._name;
-
   set name(String name) => _$this._name = name;
 
   String _site;
-
   String get site => _$this._site;
-
   set site(String site) => _$this._site = site;
 
   OrganizerBuilder();

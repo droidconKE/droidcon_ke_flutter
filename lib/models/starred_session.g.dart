@@ -157,33 +157,23 @@ class StarredSessionBuilder
   _$StarredSession _$v;
 
   String _day;
-
   String get day => _$this._day;
-
   set day(String day) => _$this._day = day;
 
   String _documentId;
-
   String get documentId => _$this._documentId;
-
   set documentId(String documentId) => _$this._documentId = documentId;
 
   String _session_id;
-
   String get session_id => _$this._session_id;
-
   set session_id(String session_id) => _$this._session_id = session_id;
 
   bool _starred;
-
   bool get starred => _$this._starred;
-
   set starred(bool starred) => _$this._starred = starred;
 
   String _user_id;
-
   String get user_id => _$this._user_id;
-
   set user_id(String user_id) => _$this._user_id = user_id;
 
   StarredSessionBuilder();

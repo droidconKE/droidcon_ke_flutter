@@ -105,15 +105,11 @@ class AnnouncementBuilder
   _$Announcement _$v;
 
   String _title;
-
   String get title => _$this._title;
-
   set title(String title) => _$this._title = title;
 
   String _description;
-
   String get description => _$this._description;
-
   set description(String description) => _$this._description = description;
 
   AnnouncementBuilder();

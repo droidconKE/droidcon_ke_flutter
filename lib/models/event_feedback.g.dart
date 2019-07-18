@@ -91,9 +91,7 @@ class EventFeedbackBuilder
   _$EventFeedback _$v;
 
   String _eventFeedback;
-
   String get eventFeedback => _$this._eventFeedback;
-
   set eventFeedback(String eventFeedback) =>
       _$this._eventFeedback = eventFeedback;
 

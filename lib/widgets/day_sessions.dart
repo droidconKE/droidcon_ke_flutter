@@ -68,4 +68,10 @@ class _DaySessionsState extends State<DaySessions> {
       },
     );
   }
+
+  @override
+  void dispose() {
+    streamController.close();
+    super.dispose();
+  }
 }

@@ -158,34 +158,24 @@ class UserBuilder implements Builder<User, UserBuilder> {
   _$User _$v;
 
   String _email;
-
   String get email => _$this._email;
-
   set email(String email) => _$this._email = email;
 
   String _photoUrl;
-
   String get photoUrl => _$this._photoUrl;
-
   set photoUrl(String photoUrl) => _$this._photoUrl = photoUrl;
 
   String _refresh_token;
-
   String get refresh_token => _$this._refresh_token;
-
   set refresh_token(String refresh_token) =>
       _$this._refresh_token = refresh_token;
 
   String _user_id;
-
   String get user_id => _$this._user_id;
-
   set user_id(String user_id) => _$this._user_id = user_id;
 
   String _user_name;
-
   String get user_name => _$this._user_name;
-
   set user_name(String user_name) => _$this._user_name = user_name;
 
   UserBuilder();

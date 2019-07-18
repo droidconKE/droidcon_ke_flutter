@@ -1,3 +1,4 @@
+export 'about.dart';
 export 'agenda.dart';
 export 'announcement.dart';
 export 'event_feedback.dart';
