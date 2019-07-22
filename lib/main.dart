@@ -1,4 +1,4 @@
-import 'package:droidcon_ke_flutter/screens/home_page.dart';
+import 'package:droidcon_ke_flutter/screens/schedule_page.dart';
 import 'package:droidcon_ke_flutter/screens/welcome_page.dart';
 import 'package:droidcon_ke_flutter/theme.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -36,7 +36,7 @@ class MaterialAppWidget extends StatelessWidget {
         primaryColorDark: Colors.black,
         brightness: Provider.of<AppTheme>(context).getBrightness(),
       ),
-      home: (user == null) ? WelcomePage() : HomePage(),
+      home: (user == null) ? WelcomePage() : SchedulePage(),
     );
   }
 }

@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'package:droidcon_ke_flutter/widgets/app_drawer.dart';
+import 'package:droidcon_ke_flutter/widgets/popup_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -37,6 +39,13 @@ class _VenuePageState extends State<VenuePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: AppDrawer(),
+      appBar: AppBar(
+        title: Text("Venue"),
+        actions: <Widget>[
+          PopupMenu(),
+        ],
+      ),
       body: GoogleMap(
         mapType: MapType.normal,
         initialCameraPosition: _kGooglePlex,
