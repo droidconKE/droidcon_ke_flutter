@@ -1,6 +1,7 @@
+import 'package:droidcon_ke_flutter/providers/favorites_provider.dart';
+import 'package:droidcon_ke_flutter/providers/theme.dart';
 import 'package:droidcon_ke_flutter/screens/schedule_page.dart';
 import 'package:droidcon_ke_flutter/screens/welcome_page.dart';
-import 'package:droidcon_ke_flutter/theme.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -14,9 +15,15 @@ class DroidconKeApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<AppTheme>.value(value: appTheme),
+        ChangeNotifierProvider<AppTheme>.value(
+          value: appTheme,
+        ),
+        ChangeNotifierProvider<FavoritesProvider>(
+          builder: (context) => FavoritesProvider(),
+        ),
         StreamProvider<FirebaseUser>.value(
-            value: FirebaseAuth.instance.onAuthStateChanged)
+          value: FirebaseAuth.instance.onAuthStateChanged,
+        )
       ],
       child: MaterialAppWidget(),
     );

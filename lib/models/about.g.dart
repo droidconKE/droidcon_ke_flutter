@@ -18,6 +18,12 @@ class _$AboutSerializer implements StructuredSerializer<About> {
   Iterable<Object> serialize(Serializers serializers, About object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[];
+    if (object.documentID != null) {
+      result
+        ..add('documentID')
+        ..add(serializers.serialize(object.documentID,
+            specifiedType: const FullType(String)));
+    }
     if (object.id != null) {
       result
         ..add('id')
@@ -56,6 +62,10 @@ class _$AboutSerializer implements StructuredSerializer<About> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
+        case 'documentID':
+          result.documentID = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
         case 'id':
           result.id = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
@@ -81,6 +91,8 @@ class _$AboutSerializer implements StructuredSerializer<About> {
 
 class _$About extends About {
   @override
+  final String documentID;
+  @override
   final int id;
   @override
   final String name;
@@ -92,7 +104,8 @@ class _$About extends About {
   factory _$About([void Function(AboutBuilder) updates]) =>
       (new AboutBuilder()..update(updates)).build();
 
-  _$About._({this.id, this.name, this.bio, this.logoUrl}) : super._();
+  _$About._({this.documentID, this.id, this.name, this.bio, this.logoUrl})
+      : super._();
 
   @override
   About rebuild(void Function(AboutBuilder) updates) =>
@@ -105,6 +118,7 @@ class _$About extends About {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is About &&
+        documentID == other.documentID &&
         id == other.id &&
         name == other.name &&
         bio == other.bio &&
@@ -113,13 +127,16 @@ class _$About extends About {
 
   @override
   int get hashCode {
-    return $jf($jc($jc($jc($jc(0, id.hashCode), name.hashCode), bio.hashCode),
+    return $jf($jc(
+        $jc($jc($jc($jc(0, documentID.hashCode), id.hashCode), name.hashCode),
+            bio.hashCode),
         logoUrl.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper('About')
+          ..add('documentID', documentID)
           ..add('id', id)
           ..add('name', name)
           ..add('bio', bio)
@@ -130,6 +147,10 @@ class _$About extends About {
 
 class AboutBuilder implements Builder<About, AboutBuilder> {
   _$About _$v;
+
+  String _documentID;
+  String get documentID => _$this._documentID;
+  set documentID(String documentID) => _$this._documentID = documentID;
 
   int _id;
   int get id => _$this._id;
@@ -151,6 +172,7 @@ class AboutBuilder implements Builder<About, AboutBuilder> {
 
   AboutBuilder get _$this {
     if (_$v != null) {
+      _documentID = _$v.documentID;
       _id = _$v.id;
       _name = _$v.name;
       _bio = _$v.bio;
@@ -175,8 +197,13 @@ class AboutBuilder implements Builder<About, AboutBuilder> {
 
   @override
   _$About build() {
-    final _$result =
-        _$v ?? new _$About._(id: id, name: name, bio: bio, logoUrl: logoUrl);
+    final _$result = _$v ??
+        new _$About._(
+            documentID: documentID,
+            id: id,
+            name: name,
+            bio: bio,
+            logoUrl: logoUrl);
     replace(_$result);
     return _$result;
   }

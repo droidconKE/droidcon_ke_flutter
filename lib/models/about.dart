@@ -2,15 +2,18 @@ library about;
 
 import 'dart:convert';
 
-import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'serializers.dart';
 
 part 'about.g.dart';
 
 abstract class About implements Built<About, AboutBuilder> {
+  @nullable
+  String get documentID;
+
   @nullable
   int get id;
 
@@ -34,6 +37,11 @@ abstract class About implements Built<About, AboutBuilder> {
   static About fromJson(String jsonString) {
     return serializers.deserializeWith(
         About.serializer, json.decode(jsonString));
+  }
+
+  static About fromFirestoreDocument(DocumentSnapshot document) {
+    return About.fromMap(document.data)
+        .rebuild((b) => b..documentID = document.documentID);
   }
 
   static About fromMap(Map map) {

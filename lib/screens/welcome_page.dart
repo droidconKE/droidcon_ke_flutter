@@ -1,10 +1,9 @@
+import 'package:droidcon_ke_flutter/providers/theme.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:provider/provider.dart';
-
-import '../theme.dart';
 
 class WelcomePage extends StatefulWidget {
   @override
@@ -50,7 +49,8 @@ class _WelcomePageState extends State<WelcomePage> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[
                 IconButton(
-                  icon: Icon(_isDark ? Icons.brightness_high : Icons.brightness_3),
+                  icon: Icon(
+                      _isDark ? Icons.brightness_high : Icons.brightness_3),
                   onPressed: () {
                     if (_isDark)
                       appTheme.setBrightness(Brightness.light);
@@ -116,9 +116,10 @@ class _WelcomePageState extends State<WelcomePage> {
 
                     final FirebaseUser user =
                         await _auth.signInWithCredential(credential);
-                  } catch (e) {} finally {
-                    setAuthenticating(false);
-                  }
+                    // setAuthenticating(false);
+                  } catch (e) {
+                    // setAuthenticating(false);
+                  } finally {}
                 },
                 child: Row(
                   children: <Widget>[

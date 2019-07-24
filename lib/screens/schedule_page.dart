@@ -1,4 +1,4 @@
-import 'package:droidcon_ke_flutter/theme.dart';
+import 'package:droidcon_ke_flutter/providers/theme.dart';
 import 'package:droidcon_ke_flutter/widgets/agenda_page.dart';
 import 'package:droidcon_ke_flutter/widgets/app_drawer.dart';
 import 'package:droidcon_ke_flutter/widgets/day_sessions.dart';
@@ -17,7 +17,6 @@ class SchedulePage extends StatefulWidget {
 
 class _SchedulePageState extends State<SchedulePage>
     with SingleTickerProviderStateMixin {
-  final FirebaseAuth _auth = FirebaseAuth.instance;
 
   bool _isDark;
   AppTheme appTheme;

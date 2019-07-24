@@ -37,7 +37,7 @@ class _InfoPageState extends State<InfoPage> {
           stream: streamController.stream,
           builder: (context, snapshot) {
             if (snapshot.hasData) {
-              About about = About.fromMap(snapshot.data.documents[0].data);
+              About about = About.fromFirestoreDocument(snapshot.data.documents[0]);
               return Container(
                 padding: EdgeInsets.all(20),
                 child: Column(

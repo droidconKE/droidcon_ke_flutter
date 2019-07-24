@@ -4,6 +4,7 @@ import 'dart:convert';
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'serializers.dart';
 
@@ -18,7 +19,7 @@ abstract class StarredSession
   String get documentId;
 
   @nullable
-  String get session_id;
+  int get session_id;
 
   @nullable
   bool get starred;
@@ -30,9 +31,9 @@ abstract class StarredSession
 
   factory StarredSession([updates(StarredSessionBuilder b)]) = _$StarredSession;
 
-  String toJson() {
-    return json
-        .encode(serializers.serializeWith(StarredSession.serializer, this));
+  static StarredSession fromFirestoreDocument(DocumentSnapshot document) {
+    return StarredSession.fromMap(document.data)
+        .rebuild((b) => b..documentId = document.documentID);
   }
 
   static StarredSession fromJson(String jsonString) {
@@ -42,6 +43,15 @@ abstract class StarredSession
 
   static StarredSession fromMap(Map map) {
     return serializers.deserializeWith(StarredSession.serializer, map);
+  }
+
+  String toJson() {
+    return json
+        .encode(serializers.serializeWith(StarredSession.serializer, this));
+  }
+
+  Map<String, dynamic> toMap() {
+    return serializers.serializeWith(StarredSession.serializer, this);
   }
 
   static Serializer<StarredSession> get serializer =>

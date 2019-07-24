@@ -14,10 +14,10 @@ class AppDrawer extends StatelessWidget {
         children: <Widget>[
           UserAccountsDrawerHeader(
             currentAccountPicture: CircleAvatar(
-              backgroundImage: NetworkImage(user.photoUrl),
+              backgroundImage: NetworkImage("${user?.photoUrl}"),
             ),
-            accountName: Text("${user.displayName}"),
-            accountEmail: Text("${user.email}"),
+            accountName: Text("${user?.displayName}"),
+            accountEmail: Text("${user?.email}"),
           ),
           ListTile(
             leading: Icon(Icons.calendar_today),

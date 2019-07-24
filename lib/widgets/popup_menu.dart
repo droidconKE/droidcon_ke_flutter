@@ -1,9 +1,9 @@
+import 'package:droidcon_ke_flutter/providers/theme.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import 'package:provider/provider.dart';
 
-import '../theme.dart';
 
 class PopupMenu extends StatefulWidget {
   @override

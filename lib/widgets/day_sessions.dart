@@ -1,8 +1,10 @@
 import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:droidcon_ke_flutter/providers/favorites_provider.dart';
 import 'package:droidcon_ke_flutter/widgets/session_tile.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../models/index.dart';
 
@@ -19,6 +21,7 @@ class _DaySessionsState extends State<DaySessions> {
   final db = Firestore.instance;
   final StreamController<QuerySnapshot> streamController =
       StreamController<QuerySnapshot>.broadcast();
+  List<StarredSession> favorites;
 
   @override
   void initState() {
@@ -32,6 +35,7 @@ class _DaySessionsState extends State<DaySessions> {
 
   @override
   Widget build(BuildContext context) {
+    favorites = Provider.of<FavoritesProvider>(context).sessions;
     return StreamBuilder(
       stream: streamController.stream,
       builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
@@ -55,7 +59,7 @@ class _DaySessionsState extends State<DaySessions> {
           return ListView.builder(
             itemCount: sessions.length,
             itemBuilder: (context, index) {
-              return SessionTile(session: sessions[index]);
+              return SessionTile(session: sessions[index], favorites: favorites);
             },
           );
         }

@@ -36,7 +36,7 @@ class _$StarredSessionSerializer
       result
         ..add('session_id')
         ..add(serializers.serialize(object.session_id,
-            specifiedType: const FullType(String)));
+            specifiedType: const FullType(int)));
     }
     if (object.starred != null) {
       result
@@ -75,7 +75,7 @@ class _$StarredSessionSerializer
           break;
         case 'session_id':
           result.session_id = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+              specifiedType: const FullType(int)) as int;
           break;
         case 'starred':
           result.starred = serializers.deserialize(value,
@@ -98,7 +98,7 @@ class _$StarredSession extends StarredSession {
   @override
   final String documentId;
   @override
-  final String session_id;
+  final int session_id;
   @override
   final bool starred;
   @override
@@ -164,9 +164,9 @@ class StarredSessionBuilder
   String get documentId => _$this._documentId;
   set documentId(String documentId) => _$this._documentId = documentId;
 
-  String _session_id;
-  String get session_id => _$this._session_id;
-  set session_id(String session_id) => _$this._session_id = session_id;
+  int _session_id;
+  int get session_id => _$this._session_id;
+  set session_id(int session_id) => _$this._session_id = session_id;
 
   bool _starred;
   bool get starred => _$this._starred;
