@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:droidcon_ke_flutter/models/index.dart';
+import 'package:droidcon_ke_flutter/screens/session_page.dart';
 import 'package:droidcon_ke_flutter/utils/hex_color.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -55,12 +56,26 @@ class _SessionTileState extends State<SessionTile> {
             ],
           ),
           trailing: IconButton(
-            icon: Icon(_isFavorite ? Icons.star : Icons.star_border),
+            icon: AnimatedSwitcher(
+              child: Icon(_isFavorite ? Icons.star : Icons.star_border,
+                  key: ValueKey<bool>(_isFavorite)),
+              duration: const Duration(milliseconds: 100),
+              transitionBuilder: (Widget child, Animation<double> animation) {
+                final scaleTransition = Tween<double>(begin: 2, end: 1).animate(animation);
+                return ScaleTransition(
+                  child: child,
+                  scale: scaleTransition,
+                );
+              },
+            ),
             onPressed: () async {
-              var matchingDocs = widget.favorites.where((fav) =>
-              fav.day == widget.session.day_number &&
-                  fav.session_id == widget.session.id).toList();
-              var starredSession = matchingDocs.length > 0? matchingDocs[0] : null;
+              var matchingDocs = widget.favorites
+                  .where((fav) =>
+                      fav.day == widget.session.day_number &&
+                      fav.session_id == widget.session.id)
+                  .toList();
+              var starredSession =
+                  matchingDocs.length > 0 ? matchingDocs[0] : null;
               if (!_isFavorite && starredSession == null) {
                 var starred = StarredSession.fromMap({
                   'day': widget.session.day_number,
@@ -72,12 +87,16 @@ class _SessionTileState extends State<SessionTile> {
                     .collection('starred_sessions')
                     .add(starred.toMap());
               } else {
-                  await Firestore.instance
-                      .document("/starred_sessions/${starredSession.documentId}")
-                      .updateData({'starred': !_isFavorite});
+                await Firestore.instance
+                    .document("/starred_sessions/${starredSession.documentId}")
+                    .updateData({'starred': !_isFavorite});
               }
             },
           ),
+          onTap: () => Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => SessionPage(
+                    session: widget.session,
+                  ))),
         ),
         Divider(),
       ],
