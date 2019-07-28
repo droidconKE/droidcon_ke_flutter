@@ -57,6 +57,11 @@ class _PopupMenuState extends State<PopupMenu> {
                 onTap: () {
                   _auth.signOut();
                   Navigator.pop(context);
+                  if(Navigator.canPop(context)){
+                    Navigator.popUntil(context, ModalRoute.withName('/'));
+                  }else{
+                    Navigator.pushReplacementNamed(context, "/");
+                  }
                 },
                 title: Text("Logout"),
               ),
