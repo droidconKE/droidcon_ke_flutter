@@ -1,6 +1,8 @@
 import 'package:droidcon_ke_flutter/providers/favorites_provider.dart';
 import 'package:droidcon_ke_flutter/providers/theme.dart';
+import 'package:droidcon_ke_flutter/screens/info_page.dart';
 import 'package:droidcon_ke_flutter/screens/schedule_page.dart';
+import 'package:droidcon_ke_flutter/screens/venue_page.dart';
 import 'package:droidcon_ke_flutter/screens/welcome_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -45,6 +47,10 @@ class MaterialAppWidget extends StatelessWidget {
       ),
       home: (user == null) ? WelcomePage() : SchedulePage(),
       initialRoute: "/",
+      routes: {
+        '/info': (context) => InfoPage(),
+        '/venue': (context) => VenuePage(),
+      },
     );
   }
 }
