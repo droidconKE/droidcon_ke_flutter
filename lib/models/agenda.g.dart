@@ -152,24 +152,34 @@ class AgendaBuilder implements Builder<Agenda, AgendaBuilder> {
   _$Agenda _$v;
 
   int _id;
+
   int get id => _$this._id;
+
   set id(int id) => _$this._id = id;
 
   String _background_color;
+
   String get background_color => _$this._background_color;
+
   set background_color(String background_color) =>
       _$this._background_color = background_color;
 
   String _iconUrl;
+
   String get iconUrl => _$this._iconUrl;
+
   set iconUrl(String iconUrl) => _$this._iconUrl = iconUrl;
 
   String _time;
+
   String get time => _$this._time;
+
   set time(String time) => _$this._time = time;
 
   String _title;
+
   String get title => _$this._title;
+
   set title(String title) => _$this._title = title;
 
   AgendaBuilder();

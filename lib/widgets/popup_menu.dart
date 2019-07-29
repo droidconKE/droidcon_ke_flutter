@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import 'package:provider/provider.dart';
 
-
 class PopupMenu extends StatefulWidget {
   @override
   _PopupMenuState createState() => _PopupMenuState();
@@ -57,9 +56,9 @@ class _PopupMenuState extends State<PopupMenu> {
                 onTap: () {
                   _auth.signOut();
                   Navigator.pop(context);
-                  if(Navigator.canPop(context)){
+                  if (Navigator.canPop(context)) {
                     Navigator.popUntil(context, ModalRoute.withName('/'));
-                  }else{
+                  } else {
                     Navigator.pushReplacementNamed(context, "/");
                   }
                 },

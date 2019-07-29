@@ -1,14 +1,14 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 
 class AuthProvider with ChangeNotifier {
   FirebaseUser user;
   StreamSubscription userAuthSub;
 
   AuthProvider() {
-    userAuthSub =   FirebaseAuth.instance.onAuthStateChanged.listen((newUser) {
+    userAuthSub = FirebaseAuth.instance.onAuthStateChanged.listen((newUser) {
       print('AuthProvider - FirebaseAuth - onAuthStateChanged - $newUser');
       user = newUser;
       notifyListeners();

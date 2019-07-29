@@ -390,80 +390,116 @@ class SessionBuilder implements Builder<Session, SessionBuilder> {
   _$Session _$v;
 
   int _id;
+
   int get id => _$this._id;
+
   set id(int id) => _$this._id = id;
 
   String _am_pm_label;
+
   String get am_pm_label => _$this._am_pm_label;
+
   set am_pm_label(String am_pm_label) => _$this._am_pm_label = am_pm_label;
 
   String _day_number;
+
   String get day_number => _$this._day_number;
+
   set day_number(String day_number) => _$this._day_number = day_number;
 
   String _description;
+
   String get description => _$this._description;
+
   set description(String description) => _$this._description = description;
 
   String _duration;
+
   String get duration => _$this._duration;
+
   set duration(String duration) => _$this._duration = duration;
 
   String _notification_slug;
+
   String get notification_slug => _$this._notification_slug;
+
   set notification_slug(String notification_slug) =>
       _$this._notification_slug = notification_slug;
 
   String _photoUrl;
+
   String get photoUrl => _$this._photoUrl;
+
   set photoUrl(String photoUrl) => _$this._photoUrl = photoUrl;
 
   String _room;
+
   String get room => _$this._room;
+
   set room(String room) => _$this._room = room;
 
   int _room_id;
+
   int get room_id => _$this._room_id;
+
   set room_id(int room_id) => _$this._room_id = room_id;
 
   String _session_audience;
+
   String get session_audience => _$this._session_audience;
+
   set session_audience(String session_audience) =>
       _$this._session_audience = session_audience;
 
   String _session_color;
+
   String get session_color => _$this._session_color;
+
   set session_color(String session_color) =>
       _$this._session_color = session_color;
 
   ListBuilder<int> _speaker_id;
+
   ListBuilder<int> get speaker_id =>
       _$this._speaker_id ??= new ListBuilder<int>();
+
   set speaker_id(ListBuilder<int> speaker_id) =>
       _$this._speaker_id = speaker_id;
 
   String _time;
+
   String get time => _$this._time;
+
   set time(String time) => _$this._time = time;
 
   String _time_in_am;
+
   String get time_in_am => _$this._time_in_am;
+
   set time_in_am(String time_in_am) => _$this._time_in_am = time_in_am;
 
   String _title;
+
   String get title => _$this._title;
+
   set title(String title) => _$this._title = title;
 
   String _topic;
+
   String get topic => _$this._topic;
+
   set topic(String topic) => _$this._topic = topic;
 
   String _type;
+
   String get type => _$this._type;
+
   set type(String type) => _$this._type = type;
 
   String _url;
+
   String get url => _$this._url;
+
   set url(String url) => _$this._url = url;
 
   SessionBuilder();

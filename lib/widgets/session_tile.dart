@@ -61,7 +61,8 @@ class _SessionTileState extends State<SessionTile> {
                   key: ValueKey<bool>(_isFavorite)),
               duration: const Duration(milliseconds: 100),
               transitionBuilder: (Widget child, Animation<double> animation) {
-                final scaleTransition = Tween<double>(begin: 2, end: 1).animate(animation);
+                final scaleTransition =
+                    Tween<double>(begin: 2, end: 1).animate(animation);
                 return ScaleTransition(
                   child: child,
                   scale: scaleTransition,

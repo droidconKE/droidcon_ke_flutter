@@ -149,23 +149,33 @@ class AboutBuilder implements Builder<About, AboutBuilder> {
   _$About _$v;
 
   String _documentID;
+
   String get documentID => _$this._documentID;
+
   set documentID(String documentID) => _$this._documentID = documentID;
 
   int _id;
+
   int get id => _$this._id;
+
   set id(int id) => _$this._id = id;
 
   String _name;
+
   String get name => _$this._name;
+
   set name(String name) => _$this._name = name;
 
   String _bio;
+
   String get bio => _$this._bio;
+
   set bio(String bio) => _$this._bio = bio;
 
   String _logoUrl;
+
   String get logoUrl => _$this._logoUrl;
+
   set logoUrl(String logoUrl) => _$this._logoUrl = logoUrl;
 
   AboutBuilder();

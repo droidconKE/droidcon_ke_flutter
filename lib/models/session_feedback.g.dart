@@ -161,25 +161,35 @@ class SessionFeedbackBuilder
   _$SessionFeedback _$v;
 
   String _day_number;
+
   String get day_number => _$this._day_number;
+
   set day_number(String day_number) => _$this._day_number = day_number;
 
   String _session_feedback;
+
   String get session_feedback => _$this._session_feedback;
+
   set session_feedback(String session_feedback) =>
       _$this._session_feedback = session_feedback;
 
   String _session_id;
+
   String get session_id => _$this._session_id;
+
   set session_id(String session_id) => _$this._session_id = session_id;
 
   String _session_title;
+
   String get session_title => _$this._session_title;
+
   set session_title(String session_title) =>
       _$this._session_title = session_title;
 
   String _user_id;
+
   String get user_id => _$this._user_id;
+
   set user_id(String user_id) => _$this._user_id = user_id;
 
   SessionFeedbackBuilder();

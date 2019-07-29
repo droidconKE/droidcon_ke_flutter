@@ -54,7 +54,6 @@ class _VenuePageState extends State<VenuePage> {
           Marker(
             markerId: MarkerId("ihub"),
             position: ihubPosition,
-
           ),
         ]),
         onMapCreated: (GoogleMapController controller) {

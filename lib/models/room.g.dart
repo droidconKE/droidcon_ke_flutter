@@ -118,15 +118,21 @@ class RoomBuilder implements Builder<Room, RoomBuilder> {
   _$Room _$v;
 
   int _id;
+
   int get id => _$this._id;
+
   set id(int id) => _$this._id = id;
 
   String _name;
+
   String get name => _$this._name;
+
   set name(String name) => _$this._name = name;
 
   String _description;
+
   String get description => _$this._description;
+
   set description(String description) => _$this._description = description;
 
   RoomBuilder();

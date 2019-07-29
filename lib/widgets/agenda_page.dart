@@ -32,9 +32,11 @@ class _AgendaPageState extends State<AgendaPage> {
           List<Agenda> agenda = snapshot.data.documents
               .map((doc) => Agenda.fromMap(doc.data))
               .toList()
-              ..sort((a, b) {
-                return stringToTimeOfDay(a.time).toString().compareTo(stringToTimeOfDay(b.time).toString());
-              });
+                ..sort((a, b) {
+                  return stringToTimeOfDay(a.time)
+                      .toString()
+                      .compareTo(stringToTimeOfDay(b.time).toString());
+                });
           return ListView.builder(
             itemCount: agenda.length,
             itemBuilder: (context, index) {

@@ -1,6 +1,3 @@
-import 'package:droidcon_ke_flutter/screens/info_page.dart';
-import 'package:droidcon_ke_flutter/screens/schedule_page.dart';
-import 'package:droidcon_ke_flutter/screens/venue_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

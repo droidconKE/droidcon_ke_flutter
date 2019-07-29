@@ -37,14 +37,20 @@ class _InfoPageState extends State<InfoPage> {
           stream: streamController.stream,
           builder: (context, snapshot) {
             if (snapshot.hasData) {
-              About about = About.fromFirestoreDocument(snapshot.data.documents[0]);
+              About about =
+                  About.fromFirestoreDocument(snapshot.data.documents[0]);
               return Container(
                 padding: EdgeInsets.all(20),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Image.network(about.logoUrl, width: 200,),
-                    SizedBox(height: 50,),
+                    Image.network(
+                      about.logoUrl,
+                      width: 200,
+                    ),
+                    SizedBox(
+                      height: 50,
+                    ),
                     Text(about.bio),
                   ],
                 ),
