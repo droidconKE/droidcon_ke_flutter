@@ -52,11 +52,11 @@ class _SchedulePageState extends State<SchedulePage>
       appBar: AppBar(
         title: Text(
           "Schedule",
-          style: Theme.of(context).textTheme.title,
         ),
         centerTitle: true,
-        backgroundColor: Colors.transparent,
-        elevation: 0,
+        backgroundColor:
+            _isDark ? Colors.transparent : Theme.of(context).primaryColor,
+        //elevation: 0,
         actions: <Widget>[
           PopupMenu(),
         ],
