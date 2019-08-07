@@ -4,6 +4,7 @@ import 'package:droidcon_ke_flutter/screens/info_page.dart';
 import 'package:droidcon_ke_flutter/screens/organizers_page.dart';
 import 'package:droidcon_ke_flutter/screens/schedule_page.dart';
 import 'package:droidcon_ke_flutter/screens/speakers_page.dart';
+import 'package:droidcon_ke_flutter/screens/sponsors_page.dart';
 import 'package:droidcon_ke_flutter/screens/venue_page.dart';
 import 'package:droidcon_ke_flutter/screens/welcome_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -55,6 +56,7 @@ class MaterialAppWidget extends StatelessWidget {
         '/venue': (context) => VenuePage(),
         '/speakers': (context) => SpeakersPage(),
         '/organizers': (context) => OrganizersPage(),
+        '/sponsors': (context) => SponsorsPage(),
       },
     );
   }

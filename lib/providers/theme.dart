@@ -11,7 +11,7 @@ class AppTheme with ChangeNotifier {
 
   init() async {
     prefs = await SharedPreferences.getInstance();
-    var isDark = prefs.getBool("DARK_THEME") ?? false;
+    var isDark = prefs.getBool("DARK_THEME") ?? true;
     _themeBrightness = isDark ? Brightness.dark : Brightness.light;
     notifyListeners();
   }

@@ -1,7 +1,7 @@
 name: droidcon_ke_flutter
 description: DroidconKE Conference app built with Flutter
 
-version: 1.0.0+3
+version: 1.0.2+5
 
 environment:
   sdk: ">=2.2.2 <3.0.0"
@@ -24,6 +24,7 @@ dependencies:
   cached_network_image: ^1.1.1
   flutter_swiper: ^1.1.6
   url_launcher: any
+  community_material_icon: 3.5.95
 
 dev_dependencies:
   flutter_test:

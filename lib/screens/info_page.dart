@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:community_material_icon/community_material_icon.dart';
 import 'package:droidcon_ke_flutter/models/index.dart';
 import 'package:droidcon_ke_flutter/providers/theme.dart';
 import 'package:droidcon_ke_flutter/widgets/app_drawer.dart';
@@ -145,9 +146,25 @@ class _InfoPageState extends State<InfoPage> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: <Widget>[
-                        Icon(Icons.monetization_on),
+                        Icon(CommunityMaterialIcons.puzzle),
                         Text(
                           "Organizers",
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                InkWell(
+                  onTap: () =>
+                      Navigator.of(context).pushReplacementNamed("/sponsors"),
+                  child: Card(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: <Widget>[
+                        Icon(Icons.monetization_on),
+                        Text(
+                          "Sponsors",
                         ),
                       ],
                     ),

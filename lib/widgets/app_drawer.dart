@@ -1,3 +1,4 @@
+import 'package:community_material_icon/community_material_icon.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -43,15 +44,21 @@ class AppDrawer extends StatelessWidget {
           ),
           Divider(),
           ListTile(
-            leading: Icon(Icons.location_on),
+            leading: Icon(Icons.map),
             title: Text("Venue"),
             onTap: () => Navigator.of(context).pushReplacementNamed("/venue"),
           ),
           Divider(),
           ListTile(
-            leading: Icon(Icons.monetization_on),
+            leading: Icon(CommunityMaterialIcons.puzzle),
             title: Text("Organizers"),
             onTap: () => Navigator.of(context).pushReplacementNamed("/organizers"),
+          ),
+          Divider(),
+          ListTile(
+            leading: Icon(Icons.monetization_on),
+            title: Text("Sponsors"),
+            onTap: () => Navigator.of(context).pushReplacementNamed("/sponsors"),
           ),
           Divider(),
         ],
