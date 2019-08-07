@@ -18,11 +18,12 @@ dependencies:
   built_value: ^6.3.2
   built_collection: ^4.1.0
   shared_preferences: ^0.5.3+4
-  google_maps_flutter: ^0.5.19+2
-  permission_handler: ^3.1.0
+  google_maps_flutter: ^0.5.20+1
+  permission_handler: ^3.2.1+1
   transparent_image: ^1.0.0
   cached_network_image: ^1.1.1
-
+  flutter_swiper: ^1.1.6
+  url_launcher: any
 
 dev_dependencies:
   flutter_test:
