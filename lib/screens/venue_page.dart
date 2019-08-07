@@ -65,8 +65,12 @@ class _VenuePageState extends State<VenuePage> {
         myLocationButtonEnabled: true,
         markers: Set.of([
           Marker(
-            markerId: MarkerId("ihub"),
+            markerId: MarkerId("iHub"),
             position: ihubPosition,
+            infoWindow: InfoWindow(
+              title: "iHub",
+              snippet: "Senteu Plaza, 6th Floor, Galana Rd. / Lenana Rd. Intersection",
+            ),
           ),
         ]),
         onMapCreated: (GoogleMapController controller) {
