@@ -1,6 +1,7 @@
 import 'package:droidcon_ke_flutter/providers/favorites_provider.dart';
 import 'package:droidcon_ke_flutter/providers/theme.dart';
 import 'package:droidcon_ke_flutter/screens/info_page.dart';
+import 'package:droidcon_ke_flutter/screens/organizers_page.dart';
 import 'package:droidcon_ke_flutter/screens/schedule_page.dart';
 import 'package:droidcon_ke_flutter/screens/speakers_page.dart';
 import 'package:droidcon_ke_flutter/screens/venue_page.dart';
@@ -42,6 +43,7 @@ class MaterialAppWidget extends StatelessWidget {
       title: "DroidconKE",
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        fontFamily: "GoogleSans",
         primaryColor: Colors.purple,
         primaryColorDark: Colors.black,
         brightness: Provider.of<AppTheme>(context).getBrightness(),
@@ -52,6 +54,7 @@ class MaterialAppWidget extends StatelessWidget {
         '/schedule': (context) => SchedulePage(),
         '/venue': (context) => VenuePage(),
         '/speakers': (context) => SpeakersPage(),
+        '/organizers': (context) => OrganizersPage(),
       },
     );
   }

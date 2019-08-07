@@ -1,7 +1,7 @@
 name: droidcon_ke_flutter
 description: DroidconKE Conference app built with Flutter
 
-version: 1.0.0+2
+version: 1.0.0+3
 
 environment:
   sdk: ">=2.2.2 <3.0.0"
@@ -46,6 +46,11 @@ flutter:
     - assets/images/logo-name.png
     - assets/images/google-signin.png
     - assets/images/app_drawer.png
+
+  fonts:
+    - family: GoogleSans
+      fonts:
+        - asset: assets/fonts/GoogleSansRegular.ttf
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

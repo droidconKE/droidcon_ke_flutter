@@ -48,6 +48,12 @@ class AppDrawer extends StatelessWidget {
             onTap: () => Navigator.of(context).pushReplacementNamed("/venue"),
           ),
           Divider(),
+          ListTile(
+            leading: Icon(Icons.monetization_on),
+            title: Text("Organizers"),
+            onTap: () => Navigator.of(context).pushReplacementNamed("/organizers"),
+          ),
+          Divider(),
         ],
       ),
     );

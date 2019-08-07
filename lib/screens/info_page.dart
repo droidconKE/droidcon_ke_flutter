@@ -137,6 +137,22 @@ class _InfoPageState extends State<InfoPage> {
                     ),
                   ),
                 ),
+                InkWell(
+                  onTap: () =>
+                      Navigator.of(context).pushReplacementNamed("/organizers"),
+                  child: Card(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: <Widget>[
+                        Icon(Icons.monetization_on),
+                        Text(
+                          "Organizers",
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
