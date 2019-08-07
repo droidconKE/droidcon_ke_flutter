@@ -15,29 +15,39 @@ class AppDrawer extends StatelessWidget {
             ),
             accountName: Text("${user?.displayName}"),
             accountEmail: Text("${user?.email}"),
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("assets/images/app_drawer.png"),
+                fit: BoxFit.fitWidth,
+              ),
+            ),
           ),
           ListTile(
             leading: Icon(Icons.home),
             title: Text("Home"),
             onTap: () => Navigator.of(context).pushReplacementNamed("/"),
           ),
+          Divider(),
           ListTile(
             leading: Icon(Icons.calendar_today),
             title: Text("Schedule"),
             onTap: () =>
                 Navigator.of(context).pushReplacementNamed("/schedule"),
           ),
+          Divider(),
           ListTile(
             leading: Icon(Icons.people),
             title: Text("Speakers"),
             onTap: () =>
                 Navigator.of(context).pushReplacementNamed("/speakers"),
           ),
+          Divider(),
           ListTile(
             leading: Icon(Icons.location_on),
             title: Text("Venue"),
             onTap: () => Navigator.of(context).pushReplacementNamed("/venue"),
           ),
+          Divider(),
         ],
       ),
     );
