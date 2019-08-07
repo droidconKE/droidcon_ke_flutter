@@ -62,7 +62,6 @@ class _OrganizersPageState extends State<OrganizersPage> {
                   .toList()
                     ..sort((a, b) =>
                         a.name.toLowerCase().compareTo(b.name.toLowerCase()));
-              print(organizers[0]);
               return Swiper(
                 itemBuilder: (BuildContext context, int index) {
                   return Container(
@@ -78,9 +77,8 @@ class _OrganizersPageState extends State<OrganizersPage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           CachedNetworkImage(
-                            // imageUrl: organizers[index].logoUrl,
-                            imageUrl:
-                                'https://droidcon.co.ke/assets/img/about-logo.png',
+                            imageUrl: organizers[index].logoUrl,
+                            // imageUrl: 'https://droidcon.co.ke/assets/img/about-logo.png',
                             height: 150,
                           ),
                           SizedBox(
