@@ -90,7 +90,8 @@ class _InfoPageState extends State<InfoPage> {
               crossAxisCount: 3,
               children: [
                 InkWell(
-                  onTap: () => Navigator.of(context).pushReplacementNamed("/schedule"),
+                  onTap: () =>
+                      Navigator.of(context).pushReplacementNamed("/schedule"),
                   child: Card(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -136,7 +137,6 @@ class _InfoPageState extends State<InfoPage> {
                     ),
                   ),
                 ),
-
               ],
             ),
           ),

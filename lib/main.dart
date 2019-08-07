@@ -12,7 +12,7 @@ import 'package:provider/provider.dart';
 void main() => runApp(DroidconKeApp());
 
 class DroidconKeApp extends StatelessWidget {
-  final appTheme = AppTheme(Brightness.light);
+  final appTheme = AppTheme(Brightness.dark);
 
   @override
   Widget build(BuildContext context) {

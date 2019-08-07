@@ -46,19 +46,19 @@ class _DaySessionsState extends State<DaySessions> {
                 ..sort((a, b) {
                   var aHour = int.parse(a.time_in_am.split(":")[0].trim());
                   var aTime = TimeOfDay(
-                      hour: aHour +
+                      hour: aHour /*+
                           (a.am_pm_label.toLowerCase().contains("pm") &&
                                   aHour != 12
                               ? 12
-                              : 0),
+                              : 0),*/,
                       minute: int.parse(a.time_in_am.split(":")[1].trim()));
                   var bHour = int.parse(b.time_in_am.split(":")[0].trim());
                   var bTime = TimeOfDay(
-                      hour: bHour +
+                      hour: bHour /*+
                           (b.am_pm_label.toLowerCase().contains("pm") &&
                                   bHour != 12
                               ? 12
-                              : 0),
+                              : 0)*/,
                       minute: int.parse(b.time_in_am.split(":")[1].trim()));
                   return aTime.toString().compareTo(bTime.toString());
                 });

@@ -32,64 +32,66 @@ class _SessionPageState extends State<SessionPage> with WidgetsBindingObserver {
             session: widget.session,
           ),
           SliverFillRemaining(
-            child: Container(
-              padding: EdgeInsets.all(15),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Row(
-                        children: widget.session.speaker_id
-                            .map((i) => SpeakerAvatar(
-                                  speakerId: i,
-                                ))
-                            .toList(),
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Text(
-                            widget.session.room,
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                          Text(
-                            widget.session.time_in_am,
-                            style: TextStyle(fontSize: 12),
-                          ),
-                          Text(
-                            widget.session.duration,
-                            style: TextStyle(fontSize: 10),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                  Divider(),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Row(
-                        children: <Widget>[
-                          Container(
-                            height: 10,
-                            width: 10,
-                            color: HexColor(widget.session.session_color),
-                            margin: EdgeInsets.only(right: 10),
-                          ),
-                          Text("${widget.session.type}"),
-                        ],
-                      ),
-                      Chip(label: Text("${widget.session.session_audience}")),
-                    ],
-                  ),
-                  Divider(),
-                  Text(
-                    widget.session.description,
-                    textAlign: TextAlign.justify,
-                  ),
-                ],
+            child: SingleChildScrollView(
+              child: Container(
+                padding: EdgeInsets.all(15),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Row(
+                          children: widget.session.speaker_id
+                              .map((i) => SpeakerAvatar(
+                                    speakerId: i,
+                                  ))
+                              .toList(),
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            Text(
+                              widget.session.room,
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            Text(
+                              widget.session.time_in_am,
+                              style: TextStyle(fontSize: 12),
+                            ),
+                            Text(
+                              widget.session.duration,
+                              style: TextStyle(fontSize: 10),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                    Divider(),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Row(
+                          children: <Widget>[
+                            Container(
+                              height: 10,
+                              width: 10,
+                              color: HexColor(widget.session.session_color),
+                              margin: EdgeInsets.only(right: 10),
+                            ),
+                            Text("${widget.session.type}"),
+                          ],
+                        ),
+                        Chip(label: Text("${widget.session.session_audience}")),
+                      ],
+                    ),
+                    Divider(),
+                    Text(
+                      widget.session.description,
+                      textAlign: TextAlign.justify,
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

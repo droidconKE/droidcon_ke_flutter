@@ -90,8 +90,8 @@ class _SchedulePageState extends State<SchedulePage>
               child: TabBarView(
                 controller: _tabController,
                 children: [
-                  DaySessions(day: 'day_one'),
-                  DaySessions(day: 'day_two'),
+                  DaySessions(day: 'day_one_2019'),
+                  DaySessions(day: 'day_two_2019'),
                   AgendaPage(),
                 ],
               ),

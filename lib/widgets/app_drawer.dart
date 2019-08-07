@@ -24,12 +24,14 @@ class AppDrawer extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.calendar_today),
             title: Text("Schedule"),
-            onTap: () => Navigator.of(context).pushReplacementNamed("/schedule"),
+            onTap: () =>
+                Navigator.of(context).pushReplacementNamed("/schedule"),
           ),
           ListTile(
             leading: Icon(Icons.people),
             title: Text("Speakers"),
-            onTap: () => Navigator.of(context).pushReplacementNamed("/speakers"),
+            onTap: () =>
+                Navigator.of(context).pushReplacementNamed("/speakers"),
           ),
           ListTile(
             leading: Icon(Icons.location_on),

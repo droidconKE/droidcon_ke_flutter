@@ -20,7 +20,7 @@ class _AgendaPageState extends State<AgendaPage> {
   @override
   void initState() {
     streamController
-        .addStream(db.collection("agenda").getDocuments().asStream());
+        .addStream(db.collection("agenda_2019").getDocuments().asStream());
     super.initState();
   }
 

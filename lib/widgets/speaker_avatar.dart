@@ -24,7 +24,7 @@ class _SpeakerAvatarState extends State<SpeakerAvatar> {
   @override
   void initState() {
     streamController.addStream(db
-        .collection('speakers')
+        .collection('speakers2019')
         .where('id', isEqualTo: widget.speakerId)
         .limit(1)
         .getDocuments()

@@ -62,7 +62,7 @@ class _DynamicSliverState extends State<DynamicSliver> {
                 duration: const Duration(milliseconds: 100),
                 transitionBuilder: (Widget child, Animation<double> animation) {
                   final scaleTransition =
-                  Tween<double>(begin: 2, end: 1).animate(animation);
+                      Tween<double>(begin: 2, end: 1).animate(animation);
                   return ScaleTransition(
                     child: child,
                     scale: scaleTransition,
@@ -72,11 +72,11 @@ class _DynamicSliverState extends State<DynamicSliver> {
               onPressed: () async {
                 var matchingDocs = favorites
                     .where((fav) =>
-                fav.day == widget.session.day_number &&
-                    fav.session_id == widget.session.id)
+                        fav.day == widget.session.day_number &&
+                        fav.session_id == widget.session.id)
                     .toList();
                 var starredSession =
-                matchingDocs.length > 0 ? matchingDocs[0] : null;
+                    matchingDocs.length > 0 ? matchingDocs[0] : null;
                 if (!_isFavorite && starredSession == null) {
                   var starred = StarredSession.fromMap({
                     'day': widget.session.day_number,
@@ -89,7 +89,8 @@ class _DynamicSliverState extends State<DynamicSliver> {
                       .add(starred.toMap());
                 } else {
                   await Firestore.instance
-                      .document("/starred_sessions/${starredSession.documentId}")
+                      .document(
+                          "/starred_sessions/${starredSession.documentId}")
                       .updateData({'starred': !_isFavorite});
                 }
               },

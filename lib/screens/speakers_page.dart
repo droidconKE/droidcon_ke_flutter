@@ -25,7 +25,7 @@ class _SpeakersPageState extends State<SpeakersPage> {
   @override
   void initState() {
     streamController
-        .addStream(db.collection('speakers').getDocuments().asStream());
+        .addStream(db.collection('speakers2019').getDocuments().asStream());
     super.initState();
   }
 
